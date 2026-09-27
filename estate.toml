@@ -1,0 +1,90 @@
+version = 1
+template = "estate-repository-v1"
+
+[repository]
+id = "larsbx/julia-oracle-lab"
+kind = "oracle-lab"
+lifecycle = "active"
+default_branch = "main"
+layout_status = "canonical"
+
+[principles]
+ordering = ["authority", "domain", "language"]
+empty_silos = "forbidden"
+cross_language_disagreement = "fail_closed"
+generated_surfaces = "derived_only"
+vendor_code = "non_local"
+experimental_code = "non_authoritative"
+
+# The oracle registry and the schema of its entries are the lab's policy.
+[[plane]]
+id = "policy"
+target = "registry"
+authority = "governance"
+required = true
+current = ["registry", "estate.toml"]
+
+# Julia's package layout fixes the kernel at src/: registry and binding validation only.
+[[plane]]
+id = "kernel"
+target = "src"
+authority = "canonical_executable"
+required = true
+current = ["src"]
+
+[[plane]]
+id = "oracles"
+target = "oracles"
+authority = "non_authoritative_oracle"
+required = true
+current = ["oracles"]
+
+[[plane]]
+id = "experiments"
+target = "experiments"
+authority = "non_authoritative_experiment"
+required = true
+current = ["experiments"]
+
+# Pkg.test() fixes conformance at test/.
+[[plane]]
+id = "conformance"
+target = "test"
+authority = "evidence"
+required = true
+current = ["test"]
+
+[[plane]]
+id = "tooling"
+target = "tools"
+authority = "repository_tooling"
+required = true
+current = ["tools"]
+
+[[plane]]
+id = "docs"
+target = "docs"
+authority = "exposition"
+required = true
+current = ["docs", "README.md", "ROADMAP.md", "CHANGELOG.md", "ARCHITECTURE.md"]
+
+[[language]]
+# Julia is canonical for the lab's own kernel (registry and binding validation)
+# only. The lab sits outside every acceptance boundary: docs/AUTHORITY_BOUNDARY.md.
+name = "Julia"
+authority = "canonical"
+roles = ["kernel", "oracle", "experiment"]
+acceptance_authority = false
+
+[migration]
+mode = "boundary_first"
+mass_move = false
+next = []
+
+[governance]
+repository = "larsbx/estate-governance"
+revision = "283b6955395ea17f022412aa1539db7aa0448e08"
+
+[governance.sha256]
+"docs/architecture/estate-repository-template-v1.md" = "e2a136e7779290224c1c4a73f4fefb9da51e1b0881fd460e911611db59da08d5"
+"tools/audit_estate_layout.py" = "8037f9366da3eeb03f928944c9688ea3ef14a6861c8a8950d9351692e22f37da"
