@@ -21,7 +21,10 @@ Julia is canonical only for the lab's own registry and binding validation
 `agrees`, `disagrees`, `inconclusive`, or `oracle_error`, never an acceptance
 verdict (`docs/AUTHORITY_BOUNDARY.md`).
 
-The layout is transitional. Each plane in `estate.toml` records its future
-`target` and the existing paths it currently covers; existing paths remain
-authoritative until a dedicated migration PR moves one bounded context. Directory
-renames alone must not change claim status, acceptance, or authority.
+Oracles live under `oracles/<domain>/`, outside the package's `src/`, which
+holds only the kernel; `src/JuliaOracleLab.jl` includes them from there.
+
+The layout is canonical: every plane in `estate.toml` maps exactly its `target`
+(root-level files aside), every top-level directory is some plane's target, and
+no migration step is pending; the audit enforces all three. Directory renames
+alone must not change claim status, acceptance, or authority.

@@ -6,7 +6,7 @@ id = "larsbx/julia-oracle-lab"
 kind = "oracle-lab"
 lifecycle = "active"
 default_branch = "main"
-layout_status = "transitional"
+layout_status = "canonical"
 
 [principles]
 ordering = ["authority", "domain", "language"]
@@ -16,54 +16,57 @@ generated_surfaces = "derived_only"
 vendor_code = "non_local"
 experimental_code = "non_authoritative"
 
+# The oracle registry and the schema of its entries are the lab's policy.
 [[plane]]
 id = "policy"
-target = "policy"
+target = "registry"
 authority = "governance"
 required = true
-current = ["estate.toml", "docs/AUTHORITY_BOUNDARY.md", "registry/oracles.toml"]
+current = ["registry", "estate.toml"]
 
+# Julia's package layout fixes the kernel at src/: registry and binding validation only.
 [[plane]]
 id = "kernel"
-target = "kernel"
+target = "src"
 authority = "canonical_executable"
 required = true
-current = ["src/JuliaOracleLab.jl"]
+current = ["src"]
 
 [[plane]]
 id = "oracles"
 target = "oracles"
 authority = "non_authoritative_oracle"
 required = true
-current = ["src/ExactArithmeticOracle.jl", "src/ParabolicIndexOracle.jl", "bin", "domains"]
+current = ["oracles"]
 
 [[plane]]
 id = "experiments"
 target = "experiments"
 authority = "non_authoritative_experiment"
 required = true
-current = ["spikes"]
+current = ["experiments"]
 
-[[plane]]
-id = "schemas"
-target = "schemas"
-authority = "contract"
-required = true
-current = ["registry/oracle-entry.schema.json"]
-
+# Pkg.test() fixes conformance at test/.
 [[plane]]
 id = "conformance"
-target = "conformance"
+target = "test"
 authority = "evidence"
 required = true
 current = ["test"]
+
+[[plane]]
+id = "tooling"
+target = "tools"
+authority = "repository_tooling"
+required = true
+current = ["tools"]
 
 [[plane]]
 id = "docs"
 target = "docs"
 authority = "exposition"
 required = true
-current = ["docs", "ROADMAP.md", "CHANGELOG.md"]
+current = ["docs", "README.md", "ROADMAP.md", "CHANGELOG.md", "ARCHITECTURE.md"]
 
 [[language]]
 # Julia is canonical for the lab's own kernel (registry and binding validation)
@@ -76,15 +79,12 @@ acceptance_authority = false
 [migration]
 mode = "boundary_first"
 mass_move = false
-next = [
-  "move oracle modules under oracles by domain",
-  "keep registry validation as the only kernel surface",
-]
+next = []
 
 [governance]
 repository = "larsbx/estate-governance"
-revision = "bd0a9491488f54f28b4a3b9076051349092383bb"
+revision = "283b6955395ea17f022412aa1539db7aa0448e08"
 
 [governance.sha256]
-"docs/architecture/estate-repository-template-v1.md" = "b5eab7543c877484a159b47cbe36aa6255c51bd6ec5863dbb9fe13d9a2c06f6b"
-"tools/audit_estate_layout.py" = "f462c397dee8a596a2a7a8c40fd5ded2989652322186c568b712366294251003"
+"docs/architecture/estate-repository-template-v1.md" = "e2a136e7779290224c1c4a73f4fefb9da51e1b0881fd460e911611db59da08d5"
+"tools/audit_estate_layout.py" = "8037f9366da3eeb03f928944c9688ea3ef14a6861c8a8950d9351692e22f37da"
