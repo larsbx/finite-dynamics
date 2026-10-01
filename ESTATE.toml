@@ -1,0 +1,122 @@
+version = 2
+template = "estate-repository-v2"
+
+[repo]
+id = "finite-dynamics"
+slug = "larsbx/finite-dynamics"
+class = "research"
+layer = 3
+band = "EXPLORE"
+stage = "candidate"
+default_branch = "main"
+inv = []
+
+[origin]
+decided_by = "stated"
+chats = []
+artifacts = []
+
+[[dep]]
+id = "estate-governance"
+rev = "63b5605c33af726317a193c303708a37f93d7394"
+pin = "sha256:2b63d6f4d399e03f860858f90fdffd3e6f26dd9844d5f0e10b6b40718467be0c"
+
+[exports]
+names = []
+
+[workspace]
+mode = "multi_program"
+
+[[program]]
+id = "finite-mandelbrot"
+root = "programs/finite-mandelbrot"
+manifest = "PROGRAM.toml"
+claim_namespace = "FM"
+canonical_language = "Mojo"
+
+[[program]]
+id = "finite-julia"
+root = "programs/finite-julia"
+manifest = "PROGRAM.toml"
+claim_namespace = "FJ"
+canonical_language = "Mojo"
+
+[[program]]
+id = "bulb-ford"
+root = "programs/bulb-ford"
+manifest = "PROGRAM.toml"
+claim_namespace = "BFC"
+canonical_language = "Python"
+
+[[program]]
+id = "julia-oracle"
+root = "programs/julia-oracle"
+manifest = "PROGRAM.toml"
+claim_namespace = "JO"
+canonical_language = "Julia"
+
+[layout]
+status = "transitional"
+
+[principles]
+ordering = ["authority", "domain", "language"]
+empty_silos = "forbidden"
+cross_language_disagreement = "fail_closed"
+generated_surfaces = "derived_only"
+vendor_code = "non_local"
+experimental_code = "non_authoritative"
+
+[[plane]]
+id = "policy"
+target = "policy"
+authority = "governance"
+required = true
+current = ["ESTATE.toml", "policy/source-locks.toml"]
+
+[[plane]]
+id = "kernel"
+target = "kernel"
+authority = "canonical_executable"
+required = true
+current = ["programs"]
+
+[[plane]]
+id = "programs"
+target = "programs"
+authority = "program_collection"
+required = true
+current = ["programs"]
+
+[[plane]]
+id = "docs"
+target = "docs"
+authority = "exposition"
+required = true
+current = ["README.md", "ARCHITECTURE.md"]
+
+[[language]]
+name = "Python"
+authority = "canonical"
+roles = ["kernel", "workspace_tooling"]
+acceptance_authority = true
+
+[[language]]
+name = "Mojo"
+authority = "supporting"
+roles = ["program_kernel"]
+acceptance_authority = false
+
+[[language]]
+name = "Julia"
+authority = "supporting"
+roles = ["oracle"]
+acceptance_authority = false
+
+[migration]
+mode = "boundary_first"
+mass_move = false
+next = [
+  "inventory source histories and CI gates",
+  "design history-preserving imports",
+  "reproduce source gates before authority transfer",
+]
