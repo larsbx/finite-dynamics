@@ -18,6 +18,8 @@ jobs:
           persist-credentials: false
       - name: History, content, namespace and disclosure boundaries
         run: python3 policy/tools/verify_julia_import.py
+      - name: Import guard regression controls
+        run: python3 -B policy/tests/test_julia_import_guard.py
       - name: Consolidated workspace estate gate
         run: python3 policy/tools/run_estate_gate.py .
       - name: Imported original estate gate
