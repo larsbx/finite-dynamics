@@ -1,0 +1,72 @@
+version = 1
+captured_at = "2026-10-01"
+
+[[program]]
+id = "finite-mandelbrot"
+repository = "larsbx/finite-mandelbrot-research"
+visibility = "public"
+commit = "3500d660a1ebc5e16c61910ebdfcbbbc0721aec0"
+tracked_files = 413
+workflow = ".github/workflows/no-trig-audit.yml"
+authority_surfaces = ["ESTATE.toml", "claim_governance.toml", "backend.toml", "ledger.json", "proof/", "paper/"]
+required_gates = [
+  "estate audit",
+  "vendored digests",
+  "claim governance",
+  "backend boundary",
+  "terminology",
+  "Mojo build and smoke",
+  "no trigonometry",
+  "no point APIs",
+  "exact arithmetic",
+  "generated ledger",
+  "reference and oracle checks",
+  "paper language",
+  "full integration tests",
+]
+
+[[program]]
+id = "finite-julia"
+repository = "larsbx/finite-julia-set-research"
+visibility = "private"
+commit = "04db96236fd5c583414905b7014f05a4f9b00a75"
+tracked_files = 152
+workflow = ".github/workflows/ci.yml"
+authority_surfaces = ["ESTATE.toml", "backend.toml", "corpus.json", "polyglot.manifest.toml"]
+required_gates = [
+  "estate audit",
+  "vendored digests",
+  "Mojo build and smoke",
+  "exact arithmetic",
+  "path and task references",
+  "terminology",
+  "generated ledgers and corpus",
+  "full tests and differential replay",
+]
+
+[[program]]
+id = "bulb-ford"
+repository = "larsbx/mandelbrot-bulbs-and-ford-circles-research"
+visibility = "private"
+commit = "449611eddb4e1a0fa7f5bd14c5a97d4362d9df6b"
+tracked_files = 117
+workflow = ".github/workflows/ci.yml"
+authority_surfaces = ["ESTATE.toml", "EXACT_EVIDENCE_BOUNDARY.md"]
+required_gates = [
+  "estate audit",
+  "finite-register no-limits audit",
+  "Python test suite",
+]
+
+[[program]]
+id = "julia-oracle"
+repository = "larsbx/julia-oracle-lab"
+visibility = "public"
+commit = "8acb50fc2fea52077a2f3afc9c8407dc07cee799"
+tracked_files = 24
+workflow = ".github/workflows/ci.yml"
+authority_surfaces = ["ESTATE.toml", "Project.toml", "registry/"]
+required_gates = [
+  "estate audit",
+  "Julia 1.11 package tests",
+]
