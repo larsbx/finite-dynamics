@@ -1,0 +1,10 @@
+version = 1
+
+[program]
+id = "julia-oracle"
+
+[source]
+repository = "larsbx/julia-oracle-lab"
+commit = "8acb50fc2fea52077a2f3afc9c8407dc07cee799"
+authority = "retained"
+import_status = "not_started"
