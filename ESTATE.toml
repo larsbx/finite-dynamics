@@ -71,7 +71,7 @@ id = "policy"
 target = "policy"
 authority = "governance"
 required = true
-current = ["ESTATE.toml", "policy/source-locks.toml"]
+current = ["ESTATE.toml", "policy/source-locks.toml", "policy/migration-inventory.toml"]
 
 [[plane]]
 id = "kernel"
@@ -92,7 +92,7 @@ id = "docs"
 target = "docs"
 authority = "exposition"
 required = true
-current = ["README.md", "ARCHITECTURE.md"]
+current = ["README.md", "ARCHITECTURE.md", "docs/migration/source-authority-inventory.md"]
 
 [[language]]
 name = "Python"
@@ -116,7 +116,6 @@ acceptance_authority = false
 mode = "boundary_first"
 mass_move = false
 next = [
-  "inventory source histories and CI gates",
   "design history-preserving imports",
   "reproduce source gates before authority transfer",
 ]
