@@ -1,0 +1,33 @@
+version = 1
+
+[[source]]
+program = "finite-mandelbrot"
+repository = "larsbx/finite-mandelbrot-research"
+branch = "main"
+commit = "3500d660a1ebc5e16c61910ebdfcbbbc0721aec0"
+authority = "retained"
+import_status = "not_started"
+
+[[source]]
+program = "finite-julia"
+repository = "larsbx/finite-julia-set-research"
+branch = "main"
+commit = "04db96236fd5c583414905b7014f05a4f9b00a75"
+authority = "retained"
+import_status = "not_started"
+
+[[source]]
+program = "bulb-ford"
+repository = "larsbx/mandelbrot-bulbs-and-ford-circles-research"
+branch = "main"
+commit = "449611eddb4e1a0fa7f5bd14c5a97d4362d9df6b"
+authority = "retained"
+import_status = "not_started"
+
+[[source]]
+program = "julia-oracle"
+repository = "larsbx/julia-oracle-lab"
+branch = "main"
+commit = "8acb50fc2fea52077a2f3afc9c8407dc07cee799"
+authority = "retained"
+import_status = "not_started"

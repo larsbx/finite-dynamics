@@ -1,0 +1,10 @@
+version = 1
+
+[program]
+id = "finite-julia"
+
+[source]
+repository = "larsbx/finite-julia-set-research"
+commit = "04db96236fd5c583414905b7014f05a4f9b00a75"
+authority = "retained"
+import_status = "not_started"
