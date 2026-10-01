@@ -6,6 +6,7 @@ branches are temporary change lines.
 
 ## Authority state
 
+Julia oracle history and executable files have been imported and verified.
 No mathematical implementation, proof record, result register, release, or issue
 authority has moved here yet. Each `PROGRAM.toml` identifies its source repository
 and immutable staging commit. Those source repositories remain authoritative until
