@@ -1,0 +1,38 @@
+name: Julia oracle migration gates
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: History, content, namespace and disclosure boundaries
+        run: python3 policy/tools/verify_julia_import.py
+      - name: Import guard regression controls
+        run: python3 -B policy/tests/test_julia_import_guard.py
+      - name: Consolidated workspace estate gate
+        run: python3 policy/tools/run_estate_gate.py .
+      - name: Imported original estate gate
+        run: python3 policy/tools/run_estate_gate.py programs/julia-oracle
+      - uses: julia-actions/setup-julia@v2
+        with:
+          version: '1.11'
+      - name: Original locked source gates
+        run: |
+          git worktree add --detach /tmp/julia-oracle-source 8acb50fc2fea52077a2f3afc9c8407dc07cee799
+          python3 policy/tools/run_estate_gate.py /tmp/julia-oracle-source
+          cd /tmp/julia-oracle-source
+          julia --project=. -e 'using Pkg; Pkg.test()'
+      - name: Imported Julia 1.11 package tests
+        working-directory: programs/julia-oracle
+        run: julia --project=. -e 'using Pkg; Pkg.test()'

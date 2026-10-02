@@ -29,3 +29,11 @@ recorded in `policy/source-locks.toml`. It does not transfer authority.
 4. **Bulb/Ford** — private and experiment-heavy; import after result-register collision and provenance rules are settled.
 
 The machine-readable gate inventory is `policy/migration-inventory.toml`.
+
+## First history-import experiment
+
+Julia oracle is imported and verified; source authority remains **retained**.
+All 61 original commits and 24 exact files are preserved. Original-source,
+imported-program, and consolidated-workspace gates passed before this status was
+recorded. See [the verification record](julia-oracle-history-import.md).
+The remaining programs are still `not_started`; no private content was imported.

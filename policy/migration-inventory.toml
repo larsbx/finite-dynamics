@@ -70,3 +70,12 @@ required_gates = [
   "estate audit",
   "Julia 1.11 package tests",
 ]
+
+[history_import_experiment]
+program = "julia-oracle"
+status = "verified"
+source_authority = "retained"
+method = "unsquashed_subtree"
+source_commits = 61
+source_files = 24
+evidence = "docs/migration/julia-oracle-history-import.md"
