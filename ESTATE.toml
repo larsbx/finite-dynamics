@@ -92,7 +92,7 @@ id = "docs"
 target = "docs"
 authority = "exposition"
 required = true
-current = ["README.md", "ARCHITECTURE.md", "docs/migration/source-authority-inventory.md"]
+current = ["README.md", "ARCHITECTURE.md", "docs/migration/source-authority-inventory.md", "docs/survey-assessment-2026-10-05.md"]
 
 [[language]]
 name = "Python"
