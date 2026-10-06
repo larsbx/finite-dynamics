@@ -15,13 +15,13 @@ arrives with the finite-mandelbrot import.
 | Program | Survey sections | Direction (details in the source repository's assessment) |
 |---|---|---|
 | `finite-mandelbrot` (FM) | §1.1–1.5, §4, §6 | C1 residual exits labelled by the field's open split (Dudko Problems 4.3/4.4); eventually periodic directives as finite names of bounded-type parameters; interior completeness restated as DH-strength; certified `S_d` Galois groups and Gleason `n = 11…14` |
-| `finite-julia` (FJ) | §1.3, §1.5, §3, §4 | residual-measure completeness per regime (zero-area tag); `niven` recorded as finite-data undecidable (tail property; Braverman–Yampolsky); roadmap housekeeping |
+| `finite-julia` (FJ) | §1.3, §1.5, §3, §4 | residual-measure completeness per regime (zero-area tag); `niven`: Brjuno decided by the algebraic multiplier (Baker-type lower bound ⇒ Diophantine), local connectivity still open, residual-measure completeness false for the trap language (positive interior area), so a rotation-domain `IN` certificate is proposed; roadmap housekeeping |
 | `bulb-ford` (BFC) | §1.7, §8 | see below |
 | `julia-oracle` (JO) | — | no direct survey item; its parabolic-index oracle is the natural cross-check for the Julia program's parabolic completeness work |
 
 Shared kernels (`larsbx/finite-math-kernels`): `F_p[x]` with distinct-degree
 factorisation, a Galois-witness checker, power series over `Q` with `ν_2`, and
-rotor continued-fraction prefixes.
+rotor continued-fraction prefixes (optional, data only).
 
 ## bulb-ford and limb geometry
 
