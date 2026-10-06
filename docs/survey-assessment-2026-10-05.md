@@ -21,7 +21,7 @@ arrives with the finite-mandelbrot import.
 
 Shared kernels (`larsbx/finite-math-kernels`): `F_p[x]` with distinct-degree
 factorisation, a Galois-witness checker, power series over `Q` with `ν_2`, and
-rotor continued-fraction prefixes (optional, data only).
+rotor continued-fraction prefixes (exact data; with the Julia gate's tail bound they give a rigorous Brjuno-sum bound).
 
 ## bulb-ford and limb geometry
 
