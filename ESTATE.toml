@@ -7,13 +7,13 @@ slug = "larsbx/finite-dynamics"
 class = "research"
 layer = 3
 band = "EXPLORE"
-stage = "candidate"
+stage = "archived"            # superseded by larsbx/my-math-homelab (DR-0003)
 default_branch = "main"
 inv = []
 
 [origin]
 decided_by = "stated"
-decision = "DR-0001"          # larsbx/estate-governance docs/decisions
+decision = "DR-0003"          # larsbx/estate-governance docs/decisions
 chats = []
 artifacts = []
 

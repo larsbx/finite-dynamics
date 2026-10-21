@@ -1,5 +1,10 @@
 # Finite dynamics architecture
 
+> **Archived.** Superseded by `larsbx/my-math-homelab`, which imports the same
+> four programs from their original sources and keeps the FM, FJ, BFC and JO
+> claim namespaces (decision record DR-0003 in `larsbx/estate-governance`).
+> This repository keeps its history and evidence but releases those namespaces.
+
 This repository is a multi-program consolidation pilot governed by
 estate-repository-v2. Durable research concerns live under `programs/<id>/`;
 branches are temporary change lines.
