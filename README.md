@@ -1,5 +1,10 @@
 # finite-dynamics
 
+> **Archived.** Superseded by `larsbx/my-math-homelab`, which imports the same
+> four programs from their original sources and keeps the FM, FJ, BFC and JO
+> claim namespaces (decision record DR-0003 in `larsbx/estate-governance`).
+> This repository keeps its history and evidence but releases those namespaces.
+
 Multi-program consolidation pilot for the finite Mandelbrot, finite Julia,
 Mandelbrot bulb/Ford-circle, and Julia-oracle research lines.
 
