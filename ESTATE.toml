@@ -12,7 +12,7 @@ default_branch = "main"
 inv = []
 
 [origin]
-decided_by = "stated"
+decided_by = "stated"         # adopted by the owner: larsbx/estate-governance DR-0001
 chats = []
 artifacts = []
 
